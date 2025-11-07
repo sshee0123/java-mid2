@@ -1,17 +1,19 @@
-package generic.test.ex3;
+package generic.ex3;
 
 import generic.animal.Cat;
 import generic.animal.Dog;
 
 /**
  * 요구사항 : 개 병원은 개만 고양이 병원은 고양이만 받을 수 있어야 한다.
- * 문제해결 : 타입을 지정하는 상한을 Animal로 제한하여 타입매개변수 관리.
+ * 문제 :
+ *      코드 재사용x : 개 병원과 고양이 병원은 중복이 많이 보인다.
+ *      타입 안정성o : 타입 안정성이 명확하게 지켜진다.
  */
-public class AnimalHospitalMainV3 {
+public class AnimalHospitalMainV0 {
 
     public static void main(String[] args) {
-        AnimalHospitalV3<Dog> dogHospital = new AnimalHospitalV3<>();
-        AnimalHospitalV3<Cat> catHospital = new AnimalHospitalV3<>();
+        DogHospital dogHospital = new DogHospital();
+        CatHospital catHospital = new CatHospital();
 
         Dog dog = new Dog("멍멍이1", 100);
         Cat cat = new Cat("냐옹이1", 300);
@@ -25,7 +27,7 @@ public class AnimalHospitalMainV3 {
         catHospital.checkup();
 
         // 문제1 : 개 병원에 고양이 전달
-        //dogHospital.set(cat); // 다른 타입 입력 : 컴파일 오류
+        // dogHospital.set(cat); // 다른 타입 입력: 컴파일 오류
 
         // 문제2 : 개 타입 반환
         dogHospital.set(dog);

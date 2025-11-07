@@ -1,4 +1,4 @@
-package generic.test.ex3;
+package generic.ex3;
 
 /**
  * 제네릭 도입

@@ -1,16 +1,12 @@
-package generic.test.ex3;
+package generic.ex3;
 
-import generic.animal.Animal;
+import generic.animal.Dog;
 
-/**
- * 타입 매개변수 제한
- * Animal의 자식만 들어올 수 있는 제네릭 T생성
- */
-public class AnimalHospitalV3<T extends Animal> {
+public class DogHospital {
 
-    private T animal;
+    private Dog animal;
 
-    public void set(T animal) {
+    public void set(Dog animal) {
         this.animal = animal;
     }
 
@@ -20,8 +16,7 @@ public class AnimalHospitalV3<T extends Animal> {
         animal.sound();
     }
 
-    public T bigger(T target) {
+    public Dog bigger(Dog target) {
         return animal.getSize() > target.getSize() ? animal : target;
     }
-
 }
